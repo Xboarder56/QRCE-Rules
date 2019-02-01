@@ -1,0 +1,21 @@
+Rule Description
+ 	Apply QRCE - 001 - Successful VPN Connection Outside the US on events which are detected by the Local system
+    and when the event(s) were detected by one or more of OpenVPN @ OPNsense
+    and when the source is Remote
+    and NOT when the source IP is a part of any of the following NorthAmerica.UnitedStates
+    and when the event QID is one of the following (1002750013) VPN Internal Address Assigned, (1002750007) Attempting to Send VPN Connection Settings
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Source IP
+
+Rule Responses
+  Dispatch New Event
+    Event Name: QRCE - 001 - Successful VPN Connection Outside the US
+    Event Description: This rule will create an event when a Successful VPN connection outside of the United States. This should never happen on this network as the only users are US based.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Application
+    Low-Level Category: VPN In Progress
+    Annotate the offense with QRCE - 001 - Successful VPN Connection Outside the US
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule is mapping to a custom DSM and/or QID this requiring additional configuration in the environment to ensure it is working correctly. The QID number will change depending on the environment.

@@ -1,0 +1,23 @@
+
+Rule Description
+ 	Apply QRCE - 002 - Unknown MAC Address on events which are detected by the Local system
+    and when the event(s) were detected by one or more of OPNSense
+    and when the event category for the event is one of the following Application.DHCP Session In Progress, Application.DHCP Success, Application.DHCP Session Opened, Application.DHCP Failure, Application.DHCP Session Denied, Application.DHCP Session Closed
+    and NOT when any of Destination MAC are contained in any of Known Mac Addresses - AlphaNumeric (Ignore Case)
+    and NOT when the event QID is one of the following (1002250010) DHCP Reuse Existing Lease
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Destination MAC Address
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 002 - Unknown MAC Address
+    Event Description: This rule detects a MAC address that has not been seen on the network for over 30 days. When this happens the new MAC address is added to the known MAC address list but an event is created for the new device.
+    Severity: 1 Credibility: 10 Relevance: 10
+    High-Level Category: Control System
+    Low-Level Category: Device Information
+    Annotate the offense with QRCE - 002 - Unknown MAC Address
+    Force the dispatched event to create a NEW offense, select the offense using Destination MAC Address
+  Add Destination MAC to Reference Set: Known Mac Addresses
+
+  Note: This rule relies on the reference set "Known Mac Addresses - AlphaNumeric (Ignore Case)" and the rule "QRCE - 001 - Known MAC Address". Please ensure that the reference set and rule are created prior to creating this rule.

@@ -1,0 +1,21 @@
+Rule Description
+ 	Apply QRCE - 001 - Outbound Port Scan on events or flows which are detected by the Local system
+    and when the context is Local to Remote
+    and when QRCE:BB - 001 - Port Scan Activity match at least 10 times with the same Source IP, Destination IP and different Destination Port in 3 minutes
+    and NOT when the source network is DMZ.WAN_External_IP
+
+Rule Actions
+ 	Force the detected Flow to create a NEW offense, select the offense using Destination IP
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - Outbound Port Scan
+    Event Description: This rule will detect when a single IP has attempted to access 10 unique ports from the port range 1-10000 in a 10 minute span to the same destination IP. This activity could possibly indicate a port scan attempt.
+    Severity: 1 Credibility: 10 Relevance: 10
+    High-Level Category: Recon
+    Low-Level Category: NMAP Reconnaissance
+    Annotate the offense with QRCE - 001 - Outbound Port Scan
+    Force the dispatched event to create a NEW offense, select the offense using Destination IP
+
+Note: This rule relies on the building block "QRCE:BB - 001 - Port Scan Activity". Please ensure that this building block is created prior to creating this rule.
+Note2: This rule is a common rule, which will alert on both flows and events.

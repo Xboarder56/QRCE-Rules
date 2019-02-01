@@ -1,0 +1,5 @@
+Apply QRCE:BB - 001 - Authorized DNS Exceptions on events or flows which are detected by the Local system
+  and when the destination IP is one of the following 8.8.8.8, 8.8.4.4
+  and when the source IP is one of the following 192.168.1.130
+
+Note: This building block is designed to exclude devices with hard coded DNS servers (IoT). The source and destination IPs can be changed depending on your required exclusions in the environment.

@@ -1,0 +1,20 @@
+Rule Description
+ 	Apply QRCE - 001 - Network Running on UPS on events which are detected by the Local system
+    and when the event(s) were detected by one or more of Synology @ Spiderman
+    and when the event QID is one of the following (1003000032) Running on UPS
+
+Rule Actions
+  Force the detected Event to create a NEW offense, select the offense using Source IP
+
+Rule Responses
+  Dispatch New Event
+  Event Name: QRCE - 001 - Network Running on UPS
+  Event Description: This rule looks for any UPS events indicating that the local network is running on a UPS. This is an indicating that the System was lost power and is utilizing the battery backup.
+  Severity: 3 Credibility: 10 Relevance: 10
+  High-Level Category: System
+  Low-Level Category: Warning
+  Annotate the offense with QRCE - 001 - Network Running on UPS
+  Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule is mapping to a custom DSM and/or QID this requiring additional configuration in the environment to ensure it is working correctly. The QID number will change depending on the environment.
+Note2: Additionally, this rule will not create an offense. I primarily utilize it for email notifications when power is lost to the environment.

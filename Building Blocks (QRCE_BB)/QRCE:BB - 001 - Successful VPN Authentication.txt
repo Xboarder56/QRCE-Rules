@@ -1,0 +1,5 @@
+Apply QRCE:BB - 001 - Successful VPN Authentication on events which are detected by the Local system
+  and when the event(s) were detected by one or more of OpenVPN
+  and when the event QID is one of the following (1002750007) Attempting to Send VPN Connection Settings, (1002750013) VPN Internal Address Assigned
+
+Note: This building block is mapping to a custom DSM and/or QID this requiring additional configuration in the environment to ensure it is working correctly. The QID number will change depending on the environment.

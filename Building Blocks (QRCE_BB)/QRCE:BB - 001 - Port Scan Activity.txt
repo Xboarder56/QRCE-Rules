@@ -1,0 +1,5 @@
+Apply QRCE:BB - 001 - Port Scan Activity on events or flows which are detected by the Local system
+  and when the event or flow matches Destination Port is greater than or equal to 1, Destination Port is less than or equal to 10000
+  and NOT when the destination port is one of the following 443, 445, 80
+
+Note: This building block excludes common ports from the rule that are prevalent in the environment. This can be adjusted to reduce false positives with the scanning rule.

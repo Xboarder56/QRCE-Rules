@@ -1,0 +1,16 @@
+Rule Description
+ 	Apply QRCE - 001 - Known MAC Address on events which are detected by the Local system
+    and when the event(s) were detected by one or more of OPNSense
+    and when the event category for the event is one of the following Application.DHCP Session In Progress, Application.DHCP Success, Application.DHCP Session Opened, Application.DHCP Failure, Application.DHCP Session Denied, Application.DHCP Session Closed
+    and when any of Destination MAC are contained in any of Known Mac Addresses - AlphaNumeric (Ignore Case)
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - Known MAC Address
+    Event Description: This rule detects a MAC address that has been seen on the network for over the last 30 days. When this happens the MAC address is added to the known MAC address list again to fresh the 30 day timer and an event is created for the refresh.
+    Severity: 1 Credibility: 10 Relevance: 10
+    High-Level Category: Control System
+    Low-Level Category: Device Information
+  Add Destination MAC to Reference Set: Known Mac Addresses
+
+Note: This rule relies on the reference set "Known Mac Addresses - AlphaNumeric (Ignore Case)". Please ensure that this reference set is created prior to creating this rule.

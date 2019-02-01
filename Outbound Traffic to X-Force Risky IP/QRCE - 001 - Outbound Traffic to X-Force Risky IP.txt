@@ -1,0 +1,21 @@
+Rule Description
+ 	Apply QRCE - 001 - Outbound Traffic to X-Force Risky IP on events or flows which are detected by the Local system
+    and when the destination IP is a part of any of the following XForce_Premium
+    and NOT when the destination network is DMZ.T-Pot_Docker_Containers-VLAN30
+    and NOT when the destination port is one of the following 123
+    and NOT when the source network is DMZ.WAN_External_IP
+
+Rule Actions
+ 	Force the detected Flow to create a NEW offense, select the offense using Source IP
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - Outbound Traffic to X-Force Risky IP
+    Event Description: This rule detects when an internal host is reaching out to a Risky IP classified by the X-Force remote networks list. When this activity is observed this could potentially indicate that the internal endpoint is compromised.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Potential Exploit
+    Low-Level Category: Potential Misc Exploit
+    Annotate the offense with QRCE - 001 - Outbound Traffic to X-Force Risky IP
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule is a common rule, which will alert on both flows and events.

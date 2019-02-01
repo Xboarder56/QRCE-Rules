@@ -1,0 +1,20 @@
+Rule Description
+  Apply QRCE - 003 - Outbound P2P Traffic on events which are detected by the Local system
+    and when the event context is Local to Remote
+    and when the event category for the event is one of the following Application.P2P, Policy.P2P Policy Violation, Application.P2P In Progress, Application.P2P Opened, Application.P2P Closed
+    and NOT when the source IP is one of the following 192.168.1.51
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Source IP
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 003 - Outbound P2P Traffic
+    Event Description: Detects a single host that is attempting outbound P2P traffic on the network. This rule will triggered when any events with a category of P2P are detected by the log source types Firewall and IDS/IPS.
+    Severity: 1 Credibility: 10 Relevance: 10
+    High-Level Category: Application
+    Low-Level Category: P2P
+    Annotate the offense with QRCE - 003 - Outbound P2P Traffic
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule is a common rule, which will alert on both flows and events.
