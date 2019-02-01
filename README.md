@@ -31,10 +31,10 @@ Note: any items listed below the rule are dependancies required for the rule to 
 Note2: These rules were based on some of the custom log sources in my environment thus they might require tweaks to things such as Log Sources, QIDs, and potentially tuning devices that are expected to cause this activity.
 
 # Change Log
-02-01-2019 - Tweaked X-Force rules to reduce false positives (Removed sub categories in the remote networks).
-01-30-2019 - Tweaked outbound P2P to only include outbound traffic. (Context is L2R)
-01-28-2019 - Added Log source failure rule.
-01-26-2019 - Added the rule, Internal Port Sweep.
-01-25-2019 - Initial creation of rules.
+  - 02-01-2019 - Tweaked X-Force rules to reduce false positives (Removed sub categories in the remote networks).
+  - 01-30-2019 - Tweaked outbound P2P to only include outbound traffic. (Context is L2R)
+  - 01-28-2019 - Added Log source failure rule.
+  - 01-26-2019 - Added the rule, Internal Port Sweep.
+  - 01-25-2019 - Initial creation of rules.
 
 # Sources/References
