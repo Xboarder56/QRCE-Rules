@@ -1,0 +1,21 @@
+Rule Description
+ 	Apply QRCE - 001 - TOR Traffic - ET_TOR on events or flows which are detected by the Local system
+    and NOT when the context is Local to Local
+    and when any of Destination IP, Source IP are contained in any of ET_Tor - IP
+
+Rule Actions
+  Force the detected Flow to create a NEW offense, select the offense using Destination IP
+    Annotate this offense with: QRCE - 001 - TOR Traffic - ET_TOR
+
+Rule Responses
+  Dispatch New Event
+    Event Name: QRCE - 001 - TOR Traffic - ET_TOR
+    Event Description: This event will trigger when traffic is observed to or from a known TOR IP address that is contained on the reference set (ET_Tor). This activity could possibly indicate that TOR traffic is occurring on the network.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Policy
+    Low-Level Category: Compliance Policy Violation
+    Annotate the offense with QRCE - 001 - TOR Traffic - ET_TOR
+    Force the dispatched event to create a NEW offense, select the offense using Destination IP
+
+Note: This rule relies on a custom threat intel reference set that is populated by the script "https://github.com/Xboarder56/QRadar-ThreatIntel-Import/blob/master/ET_Reputation/ET_TOR_Reputation_refSet.sh".
+Note2: This rule is a common rule, which will alert on both flows and events.
