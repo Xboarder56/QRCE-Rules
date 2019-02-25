@@ -27,6 +27,7 @@ This repo contains custom QRadar rules that I utilize in my home lab to alert on
 - QRCE - 001 - TOR Traffic - ET_TOR
 - QRCE - 001 - MS Audit Log Cleared
 - QRCE - 001 - Synology Log Cleared
+- QRCE - 001 - Synology USB Exfiltration
 
 # Notes
 Note: any items listed below the rule are dependancies required for the rule to function. When creating the rule ensure that the dependancies are created prior to creating the rule.
@@ -34,6 +35,7 @@ Note: any items listed below the rule are dependancies required for the rule to 
 Note2: These rules were based on some of the custom log sources in my environment thus they might require tweaks to things such as Log Sources, QIDs, and potentially tuning devices that are expected to cause this activity.
 
 # Change Log
+  - 02-25-2019 - Added Synology USB Exfiltration rule.
   - 02-24-2019 - Added Audit Log Cleared Rule. (Tested on Server 2019) and (Synology NAS)
   - 02-16-2019 - Added TOR Traffic Rule
   - 02-01-2019 - Tweaked X-Force rules to reduce false positives (Removed sub categories in the remote networks).
