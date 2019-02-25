@@ -1,0 +1,18 @@
+Rule Description
+ 	Apply QRCE - 001 - MS Audit Log Cleared on events which are detected by the Local system
+    and when the event(s) were detected by one or more of Microsoft Windows Security Event Log
+      and when the event QID is one of the following (5000006) The audit log was cleared, (5001535) Audit Log Cleared, (5000178) Audit log cleared, (5001534) Audit Log Cleared
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Source IP
+    Annotate this offense with: QRCE - 001 - MS Audit Log Cleared
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - MS Audit Log Cleared
+    Event Description: This rule will detect when an audit log on a windows device has been cleared. This could indicate an attacker who is attempting to cover their tracks.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: System
+    Low-Level Category: Information
+    Annotate the offense with QRCE - 001 - MS Audit Log Cleared
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
