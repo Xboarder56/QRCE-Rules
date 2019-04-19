@@ -1,0 +1,22 @@
+Rule Description
+ 	Apply QRCE - 001 - External SMB Scanning on events or flows which are detected by the Local system
+  and when the context is Local to Remote, Remote to Remote
+  and when the destination port is one of the following 445
+  and NOT when the source network is DMZ.T-Pot_Docker_Containers-VLAN30
+  and when at least 10 events or flows are seen with the same Source IP and different Destination IP in 2 minutes
+
+Rule Actions
+  Force the detected Flow to create a NEW offense, select the offense using Source IP
+    Annotate this offense with: QRCE - 001 - External SMB Scanning
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: External SMB Scanning
+    Event Description: This rule detects when an endpoint on the network is attempting 10 outbound connections to unique destination IPs over the destination port 445. This type of activity could indicate an outbound SMB scan which is very suspicious for an endpoint. This type of activity is commonly associated with MS17-010 worm variants.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Application
+    Low-Level Category: SMB Session In Progress
+    Annotate the offense with QRCE - 001 - External SMB Scanning
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule is a common rule, which will alert on both flows and events.
