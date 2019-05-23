@@ -1,0 +1,20 @@
+
+Rule Description
+ 	Apply QRCE - 001 - Multiple Login Failures Followed by Success - Single Username on events which are detected by the Local system
+  and when a subset of at least 1 of these QRCE - 001 - Attempted Password Guessing - Single Username, in any order, with the same username followed by a subset of at least 1 of these BB:CategoryDefinition: Authentication Success in any order to the same username from the previous sequence, within 15 minutes
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Username
+    Annotate this offense with: QRCE - 001 - Multiple Login Failures Followed by Success - Single Username
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: Multiple Login Failures Followed by Success - Single Username
+    Event Description: This rule is designed to detected when a successful login is observed after a brute force attempt. This activity could indicate that an attacker has successful enumerated the account credentials.
+    Severity: 1 Credibility: 0 Relevance: 0
+    High-Level Category: Authentication
+    Low-Level Category: User Login Success
+    Annotate the offense with QRCE - 001 - Multiple Login Failures Followed by Success - Single Username
+    Force the dispatched event to create a NEW offense, select the offense using Username
+
+NOTE: This rule relies upon the sub rule QRCE - 001 - Attempted Password Guessing - Single Username included in this repo.

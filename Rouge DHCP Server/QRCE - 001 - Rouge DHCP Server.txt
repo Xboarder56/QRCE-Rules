@@ -1,0 +1,23 @@
+
+Rule Description
+ 	Apply QRCE - 001 - Rouge DHCP Server on events which are detected by the Local system
+  and when the event(s) were detected by one or more of Fortinet FortiGate Security Gateway
+  and when the event context is Local to Local
+  and NOT when the destination IP is one of the following 192.168.1.1
+  and when the event matches Service (custom) is any of DHCP
+
+Rule Actions
+ 	Force the detected Event to create a NEW offense, select the offense using Source IP
+    Annotate this offense with: QRCE - 001 - Rouge DHCP Server
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - Rouge DHCP Server
+    Event Description: This rule is designed to look for DHCP traffic destined to an unauthorized DHCP server. This could indicate an attacker is actively trying to DoS, MITM, or perform reconnaissance on the local network.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Application
+    Low-Level Category: DHCP Session In Progress
+    Annotate the offense with QRCE - 001 - Rouge DHCP Server
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
+
+Note: This rule assumes you have a layer 7 application aware firewall. If this is not the case a simple solution is to change the service contains DHCP to destination port is 67.

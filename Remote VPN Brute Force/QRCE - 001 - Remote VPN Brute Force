@@ -1,0 +1,20 @@
+Rule Description
+ 	Apply QRCE - 001 - Remote VPN Brute Force on events which are detected by the Local system
+  and when the event(s) were detected by one or more of Fortinet FortiGate Security Gateway
+  and NOT when the event context is Local to Local
+  and when an event matches any of the following BB:CategoryDefinition: Authentication Failures
+  and when at least 5 events are seen with the same Username in 1 minutes
+
+Rule Actions
+  Force the detected Event to create a NEW offense, select the offense using Source IP
+    Annotate this offense with: QRCE - 001 - Remote VPN Brute Force
+
+Rule Responses
+ 	Dispatch New Event
+    Event Name: QRCE - 001 - Remote VPN Brute Force
+    Event Description: This rule detects when 5 failed login attempts are observed in a 1 minute span. This activity could indicate a potential brute force against the VPN server.
+    Severity: 5 Credibility: 10 Relevance: 10
+    High-Level Category: Exploit
+    Low-Level Category: Password Guess/Retrieve
+    Annotate the offense with QRCE - 001 - Remote VPN Brute Force
+    Force the dispatched event to create a NEW offense, select the offense using Source IP
