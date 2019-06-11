@@ -46,6 +46,7 @@ Note: any items listed below the rule are dependancies required for the rule to 
 Note2: These rules were based on some of the custom log sources in my environment thus they might require tweaks to things such as Log Sources, QIDs, and potentially tuning devices that are expected to cause this activity.
 
 # Change Log
+  - 06-11-2019 - Fixed Screenshot for TOR and Fixed missing folder for Internal Port Scan
   - 05-22-2019 - Added 6 additional rules for network and authentication based detections.
   - 04-18-2019 - Added Inbound Exploit Followed by Outbound Traffic, Inbound IDS Exploit, and External SMB Scanning rules.
   - 02-25-2019 - Added Synology USB Exfiltration rule.
